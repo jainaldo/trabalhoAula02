@@ -30,7 +30,6 @@ public class TelaFrame extends JFrame  implements ActionListener {
 	private JMenu menuExluir;
 	private JMenuItem itemExluirAutor;
 	private JMenuItem itemExluirLivros;
-	private JButton btnVerAutores;
 
 	public TelaFrame() {
 		setTitle("Sistemas de Biblioteca");
@@ -82,26 +81,15 @@ public class TelaFrame extends JFrame  implements ActionListener {
 		menuExluir.add(itemExluirAutor);
 		getContentPane().setLayout(null);
 		
-		btnVerAutores = new JButton(new ImageIcon(getClass().getResource("static/autor.png")));
-		btnVerAutores.setBounds(134, 87, 80, 98);
-		btnVerAutores.addActionListener(this);
-		getContentPane().add(btnVerAutores);
-		
-		JLabel lblVerAutoresCadastrados = new JLabel("Ver Autores Cadastrados");
-		lblVerAutoresCadastrados.setBounds(90, 184, 184, 15);
-		getContentPane().add(lblVerAutoresCadastrados);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == itemCadastrarAutor){
-			setContentPane(new CadastrarAutorPanel(null,null));
+			setContentPane(new CadastrarAutorPanel(this,null));
 			validate();
 		}else if (evento.getSource() == itemCadastrarLivro){
 			setContentPane(new CadastrarLivroPanel());
-			validate();
-		}else if (evento.getSource() == btnVerAutores){
-			setContentPane(new VisualizarAutoresPanel(this));
 			validate();
 		}
 		

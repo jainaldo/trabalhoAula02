@@ -35,7 +35,9 @@ public class Autor {
 
 	public String toString() {
 		
-		return getId() + " - " + getNome();
+		return getId() +" - "+ getNome() +
+				"  CPF: "+ getCpf() +
+				"  Telefone:" + getTelefone()  ;
 	}
 	
 	

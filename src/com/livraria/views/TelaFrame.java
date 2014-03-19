@@ -84,19 +84,24 @@ public class TelaFrame extends JFrame  implements ActionListener {
 		
 		btnVerAutores = new JButton(new ImageIcon(getClass().getResource("static/autor.png")));
 		btnVerAutores.setBounds(134, 87, 80, 98);
+		btnVerAutores.addActionListener(this);
 		getContentPane().add(btnVerAutores);
+		
+		JLabel lblVerAutoresCadastrados = new JLabel("Ver Autores Cadastrados");
+		lblVerAutoresCadastrados.setBounds(90, 184, 184, 15);
+		getContentPane().add(lblVerAutoresCadastrados);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == itemCadastrarAutor){
-			setContentPane(new CadastrarAutorPanel());
+			setContentPane(new CadastrarAutorPanel(null,null));
 			validate();
 		}else if (evento.getSource() == itemCadastrarLivro){
 			setContentPane(new CadastrarLivroPanel());
 			validate();
 		}else if (evento.getSource() == btnVerAutores){
-			setContentPane(new VisualizarAutoresPanel());
+			setContentPane(new VisualizarAutoresPanel(this));
 			validate();
 		}
 		

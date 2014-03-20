@@ -33,13 +33,14 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	private JLabel lblPreco;
 	private JButton btnCadastrar;
 	private JButton btnVoltar;
+	private JButton btnAlterar;
 	private AutorDAO autorDAO = new AutorDAO();
 	private LivroDAO livroDAO = new LivroDAO();
-	private Livro l = new Livro();
+	private Livro l;
 	private TelaFrame container;
 
-	public CadastrarLivroPanel(TelaFrame container) {
-		
+	public CadastrarLivroPanel(TelaFrame container,Livro l) {
+		this.l =l;
 		this.container = container;
 		setLayout(null);
 		
@@ -79,12 +80,7 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		txtPreco.setBounds(207, 189, 250, 19);
 		add(txtPreco);
 		txtPreco.setColumns(10);
-		
-		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(171, 238, 117, 25);
-		btnCadastrar.addActionListener(this);
-		add(btnCadastrar);
-		
+				
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(329, 238, 117, 25);
 		btnVoltar.addActionListener(this);
@@ -94,11 +90,31 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		lblCadastrarLivro.setFont(new Font("Ubuntu", Font.BOLD, 25));
 		lblCadastrarLivro.setBounds(194, 12, 241, 33);
 		add(lblCadastrarLivro);
+		
+		if(l == null) {
+			btnCadastrar = new JButton("Cadastrar");
+			btnCadastrar.setBounds(171, 238, 117, 25);
+			btnCadastrar.addActionListener(this);
+			add(btnCadastrar);
+					
+		}
+		else {
+			btnAlterar = new JButton("Alterar");
+			btnAlterar.setBounds(171, 238, 117, 25);
+			btnAlterar.addActionListener(this);
+			add(btnAlterar);
+			
+			txtTitulo.setText(l.getTitulo() );
+			txtEditora.setText(l.getEditora() );
+			cbnAutor.setSelectedItem(l.getAutor());
+			txtPreco.setText(String.valueOf(l.getPreco()));
+		}
 	}
 
 
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == btnCadastrar ){
+			l = new Livro();
 			l.setTitulo(txtTitulo.getText());
 			l.setEditora(txtEditora.getText());
 			l.setAutor(autorDAO.getTodosAutores().get(cbnAutor.getSelectedIndex()));
@@ -111,7 +127,22 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 				container.validate();
 			}else
 				JOptionPane.showMessageDialog(null, "ERRO no cadastro do Livro!");
-		}else if(evento.getSource() == btnVoltar){
+		}else if(evento.getSource() == btnAlterar){
+			l.setTitulo(txtTitulo.getText());
+			l.setEditora(txtEditora.getText());
+			l.setAutor(autorDAO.getTodosAutores().get(cbnAutor.getSelectedIndex()));
+			l.setPreco(Double.parseDouble(txtPreco.getText()));
+			
+			if( livroDAO.atualizarLivro(l) ){
+				JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso!");
+				VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
+				setVisible(false);
+				container.setContentPane(panelVerLivros);
+				container.validate();
+			}else
+				JOptionPane.showMessageDialog(null, "ERRO na atualização do Livro!");
+		}
+		else if(evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
 			setVisible(false);
 			container.setContentPane(panelinicial);

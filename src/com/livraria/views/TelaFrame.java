@@ -89,7 +89,7 @@ public class TelaFrame extends JFrame  implements ActionListener {
 			setContentPane(new CadastrarAutorPanel(this,null));
 			validate();
 		}else if (evento.getSource() == itemCadastrarLivro){
-			setContentPane(new CadastrarLivroPanel(this));
+			setContentPane(new CadastrarLivroPanel(this,null));
 			validate();
 		}
 		

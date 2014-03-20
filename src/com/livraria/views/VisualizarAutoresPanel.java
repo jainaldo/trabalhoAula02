@@ -83,7 +83,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 			PanelInicial panelinicial = new PanelInicial(container);
 			setVisible(false);
 			container.setContentPane(panelinicial);
-			validate();			
+			container.validate();			
 		}else if (evento.getSource() == btnAlterarAutor){
 			Autor a = todosAutores.get(listaAutores.getSelectedIndex());
 			CadastrarAutorPanel panelAutor = new CadastrarAutorPanel(container,a);

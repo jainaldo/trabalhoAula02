@@ -1,14 +1,13 @@
 package com.livraria.views;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
+import javax.swing.JPanel;
 
 public class PanelInicial extends JPanel implements ActionListener {
 
@@ -50,6 +49,11 @@ public class PanelInicial extends JPanel implements ActionListener {
 			VisualizarAutoresPanel panelVerAutores = new VisualizarAutoresPanel(container);
 			setVisible(false);
 			container.setContentPane(panelVerAutores);
+			container.validate();
+		}else if(evento.getSource() == btnVerLivros){
+			VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
+			setVisible(false);
+			container.setContentPane(panelVerLivros);
 			container.validate();
 		}
 		

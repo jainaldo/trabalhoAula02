@@ -39,49 +39,50 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	public CadastrarLivroPanel() {
 		setLayout(null);
 		
+		
 		lblTitulo = new JLabel("Título:");
-		lblTitulo.setBounds(108, 66, 45, 15);
+		lblTitulo.setBounds(205, 86, 45, 15);
 		add(lblTitulo);
 		
 		txtTitulo = new JTextField();
-		txtTitulo.setBounds(153, 64, 188, 19);
+		txtTitulo.setBounds(250, 84, 188, 19);
 		add(txtTitulo);
 		txtTitulo.setColumns(10);
 		
 		lblEditora = new JLabel("Editora:");
-		lblEditora.setBounds(97, 93, 56, 15);
+		lblEditora.setBounds(194, 113, 56, 15);
 		add(lblEditora);
 		
 		txtEditora = new JTextField();
-		txtEditora.setBounds(153, 93, 188, 19);
+		txtEditora.setBounds(250, 113, 188, 19);
 		add(txtEditora);
 		txtEditora.setColumns(10);
 		
 		lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(107, 120, 46, 15);
+		lblAutor.setBounds(204, 140, 46, 15);
 		add(lblAutor);
 		
 		cbnAutor = new JComboBox();
-		cbnAutor.setBounds(153, 115, 188, 24);
+		cbnAutor.setBounds(250, 135, 188, 24);
 		cbnAutor.setModel(new DefaultComboBoxModel(autorDAO.getTodosAutores()));
 		add(cbnAutor);
 		
 		lblPreco = new JLabel("Preço:");
-		lblPreco.setBounds(108, 147, 45, 15);
+		lblPreco.setBounds(205, 167, 45, 15);
 		add(lblPreco);
 		
 		txtPreco = new JTextField();
-		txtPreco.setBounds(153, 145, 188, 19);
+		txtPreco.setBounds(250, 165, 188, 19);
 		add(txtPreco);
 		txtPreco.setColumns(10);
 		
 		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(94, 202, 117, 25);
+		btnCadastrar.setBounds(191, 222, 117, 25);
 		btnCadastrar.addActionListener(this);
 		add(btnCadastrar);
 		
 		btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(246, 202, 117, 25);
+		btnLimpar.setBounds(343, 222, 117, 25);
 		add(btnLimpar);
 		
 		lblCadastrarLivro = new JLabel("CADASTRAR LIVRO");

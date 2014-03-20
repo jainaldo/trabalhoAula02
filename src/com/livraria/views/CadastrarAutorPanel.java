@@ -28,7 +28,7 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 	private JTextField txtTelefone;
 	private JLabel lblCpf;
 	private JButton btnCadastrar;
-	private JButton btnLimpar;
+	private JButton btnVoltar;
 	private AutorDAO autorDAO = new AutorDAO();
 	private Autor a;
 	private JButton btnAlterar;
@@ -38,48 +38,50 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 		this.container = container;
 		this.a = a;
 		setLayout(null);
-		setBounds(100, 100, 619, 399);
+		setBounds(100, 100, 619, 398);
 		
 		lblNome = new JLabel("Nome:");
-		lblNome.setBounds(104, 67, 45, 15);
+		lblNome.setBounds(174, 83, 45, 15);
 		add(lblNome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(152, 65, 193, 19);
+		txtNome.setBounds(222, 81, 193, 19);
 		add(txtNome);
 		txtNome.setColumns(10);
 		
 		lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(118, 96, 31, 15);
+		lblCpf.setBounds(188, 126, 31, 15);
 		add(lblCpf);
 		
 		txtCpf = new JTextField();
-		txtCpf.setBounds(152, 94, 193, 19);
+		txtCpf.setBounds(222, 124, 193, 19);
 		add(txtCpf);
 		txtCpf.setColumns(10);
 		
 		lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(82, 123, 67, 15);
+		lblTelefone.setBounds(152, 162, 67, 15);
 		add(lblTelefone);
 		
 		txtTelefone = new JTextField();
-		txtTelefone.setBounds(152, 123, 193, 19);
+		txtTelefone.setBounds(222, 162, 193, 19);
 		add(txtTelefone);
 		txtTelefone.setColumns(10);
 				
-		btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(268, 184, 117, 25);
-		add(btnLimpar);
-		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(321, 220, 117, 25);
+		btnVoltar.addActionListener(this);
+		add(btnVoltar);
+				
 		if(a == null) {
 			btnCadastrar = new JButton("Cadastrar");
-			btnCadastrar.setBounds(87, 184, 117, 25);
+			btnCadastrar.setBounds(153, 220, 117, 25);
 			btnCadastrar.addActionListener(this);
-			add(btnCadastrar);		
+			add(btnCadastrar);
+					
 		}
 		else {
 			btnAlterar = new JButton("Alterar");
-			btnAlterar.setBounds(87, 184, 117, 25);
+			btnAlterar.setBounds(153, 220, 117, 25);
 			btnAlterar.addActionListener(this);
 			add(btnAlterar);
 			
@@ -119,6 +121,11 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 			}else
 				JOptionPane.showMessageDialog(null, "ERRO na atualização do Autor!");			
 			
+		}else if(evento.getSource() == btnVoltar){
+			PanelInicial panelinicial = new PanelInicial(container);
+			setVisible(false);
+			container.setContentPane(panelinicial);
+			container.validate();	
 		}
 		
 	}

@@ -44,7 +44,7 @@ public class LivroDAO {
 		try {
 			Vector<Livro> Livros = new Vector<Livro>();
 			conexao = DriverManager.getConnection(url, login, senha);
-			String sql = "select * from livros order by titulo";
+			String sql = "select * from livros order by id";
 			pstm = conexao.prepareStatement(sql);
 			ResultSet todosLivros = pstm.executeQuery();
 			while( todosLivros.next() ) {
@@ -52,8 +52,13 @@ public class LivroDAO {
 				l.setId( todosLivros.getInt("id") );
 				l.setTitulo( todosLivros.getString("titulo") );
 				l.setEditora( todosLivros.getString("editora") );
-				l.setAutor( autorDAO.getTodosAutores().get(todosLivros.getInt("autor_id")));
-				l.setPreco(todosLivros.getFloat("preco"));
+				for (int i = 0; i < autorDAO.getTodosAutores().size(); i++) {
+					if (autorDAO.getTodosAutores().get(i).getId() == todosLivros.getInt("autor_id")){
+						l.setAutor(autorDAO.getTodosAutores().get(i));
+						break;
+					}
+				}
+				l.setPreco(todosLivros.getDouble("preco"));
 				Livros.add(l);
 			}
 			return Livros;
@@ -83,7 +88,7 @@ public class LivroDAO {
 	public boolean atualizarLivro(Livro l) {
 		try {
 			conexao = DriverManager.getConnection(url, login, senha);
-			String sql = "update Livros set titulo=?, editora=?, " +
+			String sql = "update livros set titulo=?, editora=?, " +
 					"autor_id=? , preco=? where id=?";
 			pstm = conexao.prepareStatement(sql);
 			pstm.setString(1, l.getTitulo());

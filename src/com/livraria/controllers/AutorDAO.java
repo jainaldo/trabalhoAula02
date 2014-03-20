@@ -42,7 +42,7 @@ public class AutorDAO {
 		try {
 			Vector<Autor> autores = new Vector<Autor>();
 			conexao = DriverManager.getConnection(url, login, senha);
-			String sql = "select * from autores order by nome";
+			String sql = "select * from autores order by id";
 			pstm = conexao.prepareStatement(sql);
 			ResultSet todosAutores = pstm.executeQuery();
 			while( todosAutores.next() ) {

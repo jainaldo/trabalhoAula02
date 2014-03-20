@@ -16,6 +16,7 @@ public class PanelInicial extends JPanel implements ActionListener {
 	private TelaFrame container;
 	private JLabel lblVerAutores;
 	private JLabel lblVerLivros;
+	private JLabel lblTitulo;
 	
 	public PanelInicial(TelaFrame container) {
 		this.container = container;
@@ -41,10 +42,10 @@ public class PanelInicial extends JPanel implements ActionListener {
 		lblVerLivros.setBounds(366, 207, 72, 19);
 		add(lblVerLivros);
 		
-		JLabel lblLivraria = new JLabel("Sistema de Livraria");
-		lblLivraria.setFont(new Font("Ubuntu", Font.BOLD, 40));
-		lblLivraria.setBounds(112, 38, 401, 44);
-		add(lblLivraria);
+		lblTitulo = new JLabel("Sistema de Livraria");
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 40));
+		lblTitulo.setBounds(112, 38, 371, 44);
+		add(lblTitulo);
 	}
 	
 	@Override

@@ -35,6 +35,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 	private JButton btnAlterarAutor;
 	private TelaFrame container;
 	private JLabel lblHelptext;
+	private JLabel lblTitulo;
 
 
 
@@ -49,7 +50,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		
 		listaAutores = new JList(todosAutores);
 		listaAutores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listaAutores.setBounds(91, 45, 434, 224);
+		listaAutores.setBounds(91, 80, 434, 189);
 		add(listaAutores);
 		
 		btnAlterarAutor = new JButton("Alterar");
@@ -73,6 +74,11 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		lblHelptext.setBackground(Color.LIGHT_GRAY);
 		lblHelptext.setBounds(91, 271, 376, 15);
 		add(lblHelptext);
+		
+		lblTitulo = new JLabel("Autores Cadastrados");
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTitulo.setBounds(116, 24, 394, 44);
+		add(lblTitulo);
 		
 	}
 

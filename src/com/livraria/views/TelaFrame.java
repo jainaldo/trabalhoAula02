@@ -21,10 +21,8 @@ public class TelaFrame extends JFrame  implements ActionListener {
 	private JMenuItem itemNovoLivro;
 	private JMenuItem itemNovoAutor;
 	private JMenu menuVer;
-	private JMenu menuExluir;
-	private JMenuItem itemExluirAutor;
-	private JMenuItem itemExluirLivros;
 	private JMenuItem itemVerLivros;
+	private JMenuItem itemVerAutores;
 
 	public TelaFrame() {
 		setTitle("Sistemas de Biblioteca");
@@ -49,19 +47,12 @@ public class TelaFrame extends JFrame  implements ActionListener {
 		barraMenu.add(menuVer);
 		
 		itemVerLivros = new JMenuItem("Livros");
+		itemVerLivros.addActionListener(this);
 		menuVer.add(itemVerLivros);
 		
-		JMenuItem itemVerAutores = new JMenuItem("Autores");
+		itemVerAutores = new JMenuItem("Autores");
+		itemVerAutores.addActionListener(this);
 		menuVer.add(itemVerAutores);
-		
-		menuExluir = new JMenu("Exluir");
-		barraMenu.add(menuExluir);
-		
-		itemExluirLivros = new JMenuItem("Livros");
-		menuExluir.add(itemExluirLivros);
-		
-		itemExluirAutor = new JMenuItem("Autor");
-		menuExluir.add(itemExluirAutor);
 		getContentPane().setLayout(null);
 		
 	}
@@ -73,6 +64,12 @@ public class TelaFrame extends JFrame  implements ActionListener {
 			validate();
 		}else if (evento.getSource() == itemNovoLivro){
 			setContentPane(new CadastrarLivroPanel(this,null));
+			validate();
+		}else if (evento.getSource() == itemVerLivros){
+			setContentPane(new VisualizarLivrosPanel(this));
+			validate();
+		}else if (evento.getSource() == itemVerAutores){
+			setContentPane(new VisualizarAutoresPanel(this));
 			validate();
 		}
 		

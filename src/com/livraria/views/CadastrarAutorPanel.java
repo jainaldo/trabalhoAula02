@@ -33,6 +33,7 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 	private Autor a;
 	private JButton btnAlterar;
 	private TelaFrame container;
+	private JLabel lblTitulo;
 
 	public CadastrarAutorPanel(TelaFrame container,Autor a) {
 		this.container = container;
@@ -71,6 +72,11 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 		btnVoltar.setBounds(321, 220, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
+		
+		lblTitulo = new JLabel("Cadastrar Novo Autor");
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTitulo.setBounds(105, 12, 422, 44);
+		add(lblTitulo);
 				
 		if(a == null) {
 			btnCadastrar = new JButton("Cadastrar");

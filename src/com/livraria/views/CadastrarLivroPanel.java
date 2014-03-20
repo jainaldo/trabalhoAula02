@@ -26,7 +26,6 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	private JTextField txtEditora;
 	private JTextField txtPreco;
 	private JLabel lblEditora;
-	private JLabel lblCadastrarLivro;
 	private JComboBox cbnAutor;
 	private JLabel lblTitulo;
 	private JLabel lblAutor;
@@ -38,6 +37,7 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	private LivroDAO livroDAO = new LivroDAO();
 	private Livro l;
 	private TelaFrame container;
+	private JLabel lblTituloPanel;
 
 	public CadastrarLivroPanel(TelaFrame container,Livro l) {
 		this.l =l;
@@ -86,10 +86,10 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
-		lblCadastrarLivro = new JLabel("CADASTRAR LIVRO");
-		lblCadastrarLivro.setFont(new Font("Ubuntu", Font.BOLD, 25));
-		lblCadastrarLivro.setBounds(194, 12, 241, 33);
-		add(lblCadastrarLivro);
+		lblTituloPanel = new JLabel("Cadastrar Novo Livro");
+		lblTituloPanel.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTituloPanel.setBounds(119, 12, 397, 44);
+		add(lblTituloPanel);
 		
 		if(l == null) {
 			btnCadastrar = new JButton("Cadastrar");

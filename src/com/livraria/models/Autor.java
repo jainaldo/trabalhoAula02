@@ -37,7 +37,7 @@ public class Autor {
 		
 		return getId() +" - "+ getNome() +
 				"  CPF: "+ getCpf() +
-				"  Telefone:" + getTelefone()  ;
+				"  Telefone: " + getTelefone()  ;
 	}
 	
 	

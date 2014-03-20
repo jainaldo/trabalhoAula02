@@ -26,6 +26,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	private JButton btnAlterarLivro;
 	private TelaFrame container;
 	private JLabel lblHelptext;
+	private JLabel lblTitulo;
 	
 	public VisualizarLivrosPanel(TelaFrame container) {
 		this.container =container;
@@ -36,7 +37,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		
 		listaLivros = new JList(todosLivros);
 		listaLivros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listaLivros.setBounds(41, 51, 499, 222);
+		listaLivros.setBounds(54, 69, 503, 202);
 		add(listaLivros);
 		
 		btnAlterarLivro = new JButton("Alterar");
@@ -58,8 +59,13 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
 		lblHelptext.setForeground(new Color(0, 0, 128));
 		lblHelptext.setBackground(Color.LIGHT_GRAY);
-		lblHelptext.setBounds(91, 271, 376, 15);
+		lblHelptext.setBounds(67, 272, 376, 15);
 		add(lblHelptext);
+		
+		lblTitulo = new JLabel("Livros Cadastrados");
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTitulo.setBounds(126, 12, 353, 44);
+		add(lblTitulo);
 
 	}
 

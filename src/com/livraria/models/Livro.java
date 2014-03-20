@@ -41,8 +41,8 @@ public class Livro {
 		
 		return getId() +" - "+ getTitulo() +
 				"  Editora: "+ getEditora() +
-				"  Autor:" + getAutor().getNome() +
-				"  Preço:" + getPreco();
+				"  Autor: " + getAutor().getNome() +
+				"  Preço: " + getPreco();
 	}
 	
 	

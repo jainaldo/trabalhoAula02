@@ -37,5 +37,13 @@ public class Livro {
 		this.preco = preco;
 	}
 	
+	public String toString() {
+		
+		return getId() +" - "+ getTitulo() +
+				"  Editora: "+ getEditora() +
+				"  Autor:" + getAutor().getNome() +
+				"  Preço:" + getPreco();
+	}
+	
 	
 }

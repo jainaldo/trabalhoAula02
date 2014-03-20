@@ -89,7 +89,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 			CadastrarAutorPanel panelAutor = new CadastrarAutorPanel(container,a);
 			setVisible(false);
 			container.setContentPane(panelAutor);
-			validate();	
+			container.validate();	
 		}else if(evento.getSource() == btnApagarAutor){
 			int opcao = JOptionPane.showConfirmDialog(null, 
 					"Tem certeza que deseja apagar o Autor selecionado?", "Exclusão de Autor",

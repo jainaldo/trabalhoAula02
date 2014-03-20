@@ -17,19 +17,14 @@ import javax.swing.JLabel;
 
 public class TelaFrame extends JFrame  implements ActionListener {
 	private JMenuBar barraMenu;
-	private JMenu menuCadastrar;
-	private JMenuItem itemCadastrarLivro;
-	private JMenuItem itemCadastrarAutor;
-	private JMenu menuConsultar;
-	private JMenu itemConsultarLivros;
-	private JMenuItem subitemLivrosPorNome;
-	private JMenuItem subitemLivrosPorAutor;
-	private JMenu itemConsultarAutor;
-	private JMenuItem subitemAutorPorNome;
-	private JMenuItem subitemAutorPorCpf;
+	private JMenu menuNovo;
+	private JMenuItem itemNovoLivro;
+	private JMenuItem itemNovoAutor;
+	private JMenu menuVer;
 	private JMenu menuExluir;
 	private JMenuItem itemExluirAutor;
 	private JMenuItem itemExluirLivros;
+	private JMenuItem itemVerLivros;
 
 	public TelaFrame() {
 		setTitle("Sistemas de Biblioteca");
@@ -39,37 +34,25 @@ public class TelaFrame extends JFrame  implements ActionListener {
 		barraMenu = new JMenuBar();
 		setJMenuBar(barraMenu);
 		
-		menuCadastrar = new JMenu("Cadastrar");
-		barraMenu.add(menuCadastrar);
+		menuNovo = new JMenu("Novo");
+		barraMenu.add(menuNovo);
 		
-		itemCadastrarLivro = new JMenuItem("Livro");
-		itemCadastrarLivro.addActionListener(this);
-		menuCadastrar.add(itemCadastrarLivro);
+		itemNovoLivro = new JMenuItem("Livro");
+		itemNovoLivro.addActionListener(this);
+		menuNovo.add(itemNovoLivro);
 		
-		itemCadastrarAutor = new JMenuItem("Autor");
-		itemCadastrarAutor.addActionListener(this);
-		menuCadastrar.add(itemCadastrarAutor);
+		itemNovoAutor = new JMenuItem("Autor");
+		itemNovoAutor.addActionListener(this);
+		menuNovo.add(itemNovoAutor);
 		
-		menuConsultar = new JMenu("Consultar");
-		barraMenu.add(menuConsultar);
+		menuVer = new JMenu("Ver");
+		barraMenu.add(menuVer);
 		
-		itemConsultarLivros = new JMenu("Livros");
-		menuConsultar.add(itemConsultarLivros);
+		itemVerLivros = new JMenuItem("Livros");
+		menuVer.add(itemVerLivros);
 		
-		subitemLivrosPorNome = new JMenuItem("Por Nome");
-		itemConsultarLivros.add(subitemLivrosPorNome);
-		
-		subitemLivrosPorAutor = new JMenuItem("Por Autor");
-		itemConsultarLivros.add(subitemLivrosPorAutor);
-		
-		itemConsultarAutor = new JMenu("Autor");
-		menuConsultar.add(itemConsultarAutor);
-		
-		subitemAutorPorNome = new JMenuItem("Por Nome");
-		itemConsultarAutor.add(subitemAutorPorNome);
-		
-		subitemAutorPorCpf = new JMenuItem("Por CPF");
-		itemConsultarAutor.add(subitemAutorPorCpf);
+		JMenuItem itemVerAutores = new JMenuItem("Autores");
+		menuVer.add(itemVerAutores);
 		
 		menuExluir = new JMenu("Exluir");
 		barraMenu.add(menuExluir);
@@ -85,10 +68,10 @@ public class TelaFrame extends JFrame  implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		if (evento.getSource() == itemCadastrarAutor){
+		if (evento.getSource() == itemNovoAutor){
 			setContentPane(new CadastrarAutorPanel(this,null));
 			validate();
-		}else if (evento.getSource() == itemCadastrarLivro){
+		}else if (evento.getSource() == itemNovoLivro){
 			setContentPane(new CadastrarLivroPanel(this,null));
 			validate();
 		}

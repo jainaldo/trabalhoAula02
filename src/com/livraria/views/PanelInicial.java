@@ -22,11 +22,11 @@ public class PanelInicial extends JPanel implements ActionListener {
 		setLayout(null);
 
 		btnVerAutores = new JButton(new ImageIcon(getClass().getResource("static/autor.png")));
-		btnVerAutores.setBounds(173, 106, 80, 98);
+		btnVerAutores.setBounds(164, 106, 99, 98);
 		btnVerAutores.addActionListener(this);
 		add(btnVerAutores);
 		
-		btnVerLivros = new JButton(new ImageIcon(getClass().getResource("static/autor.png")));
+		btnVerLivros = new JButton(new ImageIcon(getClass().getResource("static/livro.png")));
 		btnVerLivros.setBounds(358, 106, 80, 98);
 		btnVerLivros.addActionListener(this);
 		add(btnVerLivros);
@@ -40,6 +40,11 @@ public class PanelInicial extends JPanel implements ActionListener {
 		lblVerLivros.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblVerLivros.setBounds(366, 207, 72, 19);
 		add(lblVerLivros);
+		
+		JLabel lblLivraria = new JLabel("Sistema de Livraria");
+		lblLivraria.setFont(new Font("Ubuntu", Font.BOLD, 40));
+		lblLivraria.setBounds(112, 38, 401, 44);
+		add(lblLivraria);
 	}
 	
 	@Override

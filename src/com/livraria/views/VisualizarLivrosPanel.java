@@ -17,6 +17,8 @@ import javax.swing.border.MatteBorder;
 
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Livro;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	private JList listaLivros;
@@ -32,11 +34,13 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	public VisualizarLivrosPanel(TelaFrame container) {
 		this.container =container;
 		setLayout(null);
+		setBackground(new Color(63,73,68));
 		
 		livroDAO = new LivroDAO();
 		todosLivros = livroDAO.getTodosLivros();
 		
 		listaLivros = new JList(todosLivros);
+		listaLivros.setBackground(new Color(246,245,237));
 		listaLivros.setBorder(new MatteBorder(10, 2, 2, 2, (Color) new Color(13, 132, 200)));
 		listaLivros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listaLivros.setBounds(41, 71, 537, 202);
@@ -58,13 +62,14 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		add(btnVoltar);
 		
 		lblHelptext = new JLabel("*Selecione o Livro da Lista para Alterar ou Apagar!");
-		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
-		lblHelptext.setForeground(new Color(0, 0, 128));
+		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 14));
+		lblHelptext.setForeground(new Color(246,245,237));
 		lblHelptext.setBackground(Color.LIGHT_GRAY);
 		lblHelptext.setBounds(41, 272, 376, 15);
 		add(lblHelptext);
 		
 		lblTitulo = new JLabel("Livros Cadastrados");
+		lblTitulo.setForeground(new Color(246,245,237));
 		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
 		lblTitulo.setBounds(126, 12, 353, 44);
 		add(lblTitulo);

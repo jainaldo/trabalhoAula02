@@ -43,9 +43,9 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 
 	public VisualizarAutoresPanel(TelaFrame container ) {
 		this.container =container;
-		setForeground(Color.WHITE);
+		setBackground(new Color(63,73,68));
 		setLayout(null);
-		setBounds(100, 100, 619, 399);
+
 		
 		autorDAO = new AutorDAO();
 		todosAutores = autorDAO.getTodosAutores();

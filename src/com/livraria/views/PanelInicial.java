@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class PanelInicial extends JPanel implements ActionListener {
 
@@ -19,6 +20,7 @@ public class PanelInicial extends JPanel implements ActionListener {
 	private JLabel lblTitulo;
 	
 	public PanelInicial(TelaFrame container) {
+		setBackground(new Color(63,73,68));
 		this.container = container;
 		setLayout(null);
 
@@ -33,16 +35,19 @@ public class PanelInicial extends JPanel implements ActionListener {
 		add(btnVerLivros);
 		
 		lblVerAutores = new JLabel("Ver  Autores");
+		lblVerAutores.setForeground(Color.WHITE);
 		lblVerAutores.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblVerAutores.setBounds(173, 205, 90, 23);
 		add(lblVerAutores);
 		
 		lblVerLivros = new JLabel("Ver Livros");
+		lblVerLivros.setForeground(Color.WHITE);
 		lblVerLivros.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblVerLivros.setBounds(366, 207, 72, 19);
 		add(lblVerLivros);
 		
 		lblTitulo = new JLabel("Sistema de Livraria");
+		lblTitulo.setForeground(Color.WHITE);
 		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 40));
 		lblTitulo.setBounds(112, 38, 371, 44);
 		add(lblTitulo);

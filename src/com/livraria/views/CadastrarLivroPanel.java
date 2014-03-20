@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import com.livraria.controllers.AutorDAO;
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Livro;
+import java.awt.Font;
 
 public class CadastrarLivroPanel extends JPanel implements ActionListener {
 
@@ -31,62 +32,67 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	private JLabel lblAutor;
 	private JLabel lblPreco;
 	private JButton btnCadastrar;
-	private JButton btnLimpar;
+	private JButton btnVoltar;
 	private AutorDAO autorDAO = new AutorDAO();
 	private LivroDAO livroDAO = new LivroDAO();
 	private Livro l = new Livro();
+	private TelaFrame container;
 
-	public CadastrarLivroPanel() {
+	public CadastrarLivroPanel(TelaFrame container) {
+		
+		this.container = container;
 		setLayout(null);
 		
 		
 		lblTitulo = new JLabel("Título:");
-		lblTitulo.setBounds(205, 86, 45, 15);
+		lblTitulo.setBounds(161, 73, 45, 15);
 		add(lblTitulo);
 		
 		txtTitulo = new JTextField();
-		txtTitulo.setBounds(250, 84, 188, 19);
+		txtTitulo.setBounds(206, 71, 251, 19);
 		add(txtTitulo);
 		txtTitulo.setColumns(10);
 		
 		lblEditora = new JLabel("Editora:");
-		lblEditora.setBounds(194, 113, 56, 15);
+		lblEditora.setBounds(150, 109, 56, 15);
 		add(lblEditora);
 		
 		txtEditora = new JTextField();
-		txtEditora.setBounds(250, 113, 188, 19);
+		txtEditora.setBounds(206, 109, 251, 19);
 		add(txtEditora);
 		txtEditora.setColumns(10);
 		
 		lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(204, 140, 46, 15);
+		lblAutor.setBounds(160, 152, 46, 15);
 		add(lblAutor);
 		
 		cbnAutor = new JComboBox();
-		cbnAutor.setBounds(250, 135, 188, 24);
+		cbnAutor.setBounds(206, 147, 251, 24);
 		cbnAutor.setModel(new DefaultComboBoxModel(autorDAO.getTodosAutores()));
 		add(cbnAutor);
 		
 		lblPreco = new JLabel("Preço:");
-		lblPreco.setBounds(205, 167, 45, 15);
+		lblPreco.setBounds(162, 191, 45, 15);
 		add(lblPreco);
 		
 		txtPreco = new JTextField();
-		txtPreco.setBounds(250, 165, 188, 19);
+		txtPreco.setBounds(207, 189, 250, 19);
 		add(txtPreco);
 		txtPreco.setColumns(10);
 		
 		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(191, 222, 117, 25);
+		btnCadastrar.setBounds(171, 238, 117, 25);
 		btnCadastrar.addActionListener(this);
 		add(btnCadastrar);
 		
-		btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(343, 222, 117, 25);
-		add(btnLimpar);
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(329, 238, 117, 25);
+		btnVoltar.addActionListener(this);
+		add(btnVoltar);
 		
 		lblCadastrarLivro = new JLabel("CADASTRAR LIVRO");
-		lblCadastrarLivro.setBounds(141, 12, 222, 15);
+		lblCadastrarLivro.setFont(new Font("Ubuntu", Font.BOLD, 25));
+		lblCadastrarLivro.setBounds(194, 12, 241, 33);
 		add(lblCadastrarLivro);
 	}
 
@@ -97,10 +103,19 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 			l.setEditora(txtEditora.getText());
 			l.setAutor(autorDAO.getTodosAutores().get(cbnAutor.getSelectedIndex()));
 			l.setPreco(Double.parseDouble(txtPreco.getText()));
-			if( livroDAO.cadastrarLivro(l) )
+			if( livroDAO.cadastrarLivro(l) ){
 				JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso");
-			else
+				VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
+				setVisible(false);
+				container.setContentPane(panelVerLivros);
+				container.validate();
+			}else
 				JOptionPane.showMessageDialog(null, "ERRO no cadastro do Livro!");
+		}else if(evento.getSource() == btnVoltar){
+			PanelInicial panelinicial = new PanelInicial(container);
+			setVisible(false);
+			container.setContentPane(panelinicial);
+			container.validate();
 		}
 		
 	}

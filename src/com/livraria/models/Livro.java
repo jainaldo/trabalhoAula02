@@ -39,7 +39,8 @@ public class Livro {
 	
 	public String toString() {
 		
-		return getId() +" - "+ getTitulo() +
+		return getId() +"  -  "+
+				"Título: "+getTitulo() +
 				"  Editora: "+ getEditora() +
 				"  Autor: " + getAutor().getNome() +
 				"  Preço: " + getPreco();

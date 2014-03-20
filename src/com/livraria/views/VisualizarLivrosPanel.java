@@ -13,6 +13,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.MatteBorder;
 
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Livro;
@@ -36,8 +37,9 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		todosLivros = livroDAO.getTodosLivros();
 		
 		listaLivros = new JList(todosLivros);
+		listaLivros.setBorder(new MatteBorder(10, 2, 2, 2, (Color) new Color(13, 132, 200)));
 		listaLivros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listaLivros.setBounds(54, 69, 503, 202);
+		listaLivros.setBounds(41, 71, 537, 202);
 		add(listaLivros);
 		
 		btnAlterarLivro = new JButton("Alterar");
@@ -59,7 +61,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
 		lblHelptext.setForeground(new Color(0, 0, 128));
 		lblHelptext.setBackground(Color.LIGHT_GRAY);
-		lblHelptext.setBounds(67, 272, 376, 15);
+		lblHelptext.setBounds(41, 272, 376, 15);
 		add(lblHelptext);
 		
 		lblTitulo = new JLabel("Livros Cadastrados");

@@ -23,6 +23,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
 
 
 public class VisualizarAutoresPanel extends JPanel implements ActionListener {
@@ -49,8 +51,9 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		todosAutores = autorDAO.getTodosAutores();
 		
 		listaAutores = new JList(todosAutores);
+		listaAutores.setBorder(new MatteBorder(10, 2, 2, 2, (Color) new Color(13, 132, 200)));
 		listaAutores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listaAutores.setBounds(91, 80, 434, 189);
+		listaAutores.setBounds(51, 80, 514, 189);
 		add(listaAutores);
 		
 		btnAlterarAutor = new JButton("Alterar");
@@ -72,7 +75,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
 		lblHelptext.setForeground(new Color(0, 0, 128));
 		lblHelptext.setBackground(Color.LIGHT_GRAY);
-		lblHelptext.setBounds(91, 271, 376, 15);
+		lblHelptext.setBounds(47, 269, 376, 15);
 		add(lblHelptext);
 		
 		lblTitulo = new JLabel("Autores Cadastrados");

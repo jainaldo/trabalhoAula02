@@ -44,6 +44,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 	public VisualizarAutoresPanel(TelaFrame container ) {
 		this.container =container;
 		setBackground(new Color(63,73,68));
+		setBounds(100, 100, 619, 399);
 		setLayout(null);
 
 		
@@ -51,6 +52,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		todosAutores = autorDAO.getTodosAutores();
 		
 		listaAutores = new JList(todosAutores);
+		listaAutores.setBackground(new Color(246,245,237));
 		listaAutores.setBorder(new MatteBorder(10, 2, 2, 2, (Color) new Color(13, 132, 200)));
 		listaAutores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listaAutores.setBounds(51, 80, 514, 189);
@@ -73,12 +75,12 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		
 		lblHelptext = new JLabel("*Selecione um Autor da Lista para Alterar ou Apagar!");
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
-		lblHelptext.setForeground(new Color(0, 0, 128));
-		lblHelptext.setBackground(Color.LIGHT_GRAY);
-		lblHelptext.setBounds(47, 269, 376, 15);
+		lblHelptext.setForeground(new Color(246,245,237));
+		lblHelptext.setBounds(47, 273, 376, 15);
 		add(lblHelptext);
 		
 		lblTitulo = new JLabel("Autores Cadastrados");
+		lblTitulo.setForeground(new Color(246,245,237));
 		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
 		lblTitulo.setBounds(116, 24, 394, 44);
 		add(lblTitulo);

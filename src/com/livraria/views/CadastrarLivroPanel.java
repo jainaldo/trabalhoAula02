@@ -1,24 +1,21 @@
 package com.livraria.views;
 
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.border.EmptyBorder;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
 
 import com.livraria.controllers.AutorDAO;
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Livro;
-import java.awt.Font;
 
 public class CadastrarLivroPanel extends JPanel implements ActionListener {
 
@@ -42,65 +39,76 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	public CadastrarLivroPanel(TelaFrame container,Livro l) {
 		this.l =l;
 		this.container = container;
+		setBounds(100, 100, 619, 399);
+		setBackground(new Color(63,73,68));
 		setLayout(null);
 		
 		
 		lblTitulo = new JLabel("Título:");
-		lblTitulo.setBounds(161, 73, 45, 15);
+		lblTitulo.setForeground(new Color(246,245,237));
+		lblTitulo.setBounds(161, 93, 45, 15);
 		add(lblTitulo);
 		
 		txtTitulo = new JTextField();
-		txtTitulo.setBounds(206, 71, 251, 19);
+		txtTitulo.setBackground(new Color(246,245,237));
+		txtTitulo.setBounds(206, 91, 261, 19);
 		add(txtTitulo);
 		txtTitulo.setColumns(10);
 		
 		lblEditora = new JLabel("Editora:");
-		lblEditora.setBounds(150, 109, 56, 15);
+		lblEditora.setForeground(new Color(246,245,237));
+		lblEditora.setBounds(150, 129, 56, 15);
 		add(lblEditora);
 		
 		txtEditora = new JTextField();
-		txtEditora.setBounds(206, 109, 251, 19);
+		txtEditora.setBackground(new Color(246,245,237));
+		txtEditora.setBounds(206, 129, 261, 19);
 		add(txtEditora);
 		txtEditora.setColumns(10);
 		
 		lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(160, 152, 46, 15);
+		lblAutor.setForeground(new Color(246,245,237));
+		lblAutor.setBounds(160, 172, 46, 15);
 		add(lblAutor);
 		
 		cbnAutor = new JComboBox();
-		cbnAutor.setBounds(206, 147, 251, 24);
+		cbnAutor.setBackground(new Color(246,245,237));
+		cbnAutor.setBounds(206, 167, 261, 24);
 		cbnAutor.setModel(new DefaultComboBoxModel(autorDAO.getTodosAutores()));
 		add(cbnAutor);
 		
 		lblPreco = new JLabel("Preço:");
-		lblPreco.setBounds(162, 191, 45, 15);
+		lblPreco.setForeground(new Color(246,245,237));
+		lblPreco.setBounds(162, 211, 45, 15);
 		add(lblPreco);
 		
 		txtPreco = new JTextField();
-		txtPreco.setBounds(207, 189, 250, 19);
+		txtPreco.setBackground(new Color(246,245,237));
+		txtPreco.setBounds(207, 209, 260, 19);
 		add(txtPreco);
 		txtPreco.setColumns(10);
 				
 		btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(329, 238, 117, 25);
+		btnVoltar.setBounds(329, 258, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
 		lblTituloPanel = new JLabel("Cadastrar Novo Livro");
+		lblTituloPanel.setForeground(new Color(246,245,237));
 		lblTituloPanel.setFont(new Font("Ubuntu", Font.BOLD, 38));
 		lblTituloPanel.setBounds(119, 12, 397, 44);
 		add(lblTituloPanel);
 		
 		if(l == null) {
 			btnCadastrar = new JButton("Cadastrar");
-			btnCadastrar.setBounds(171, 238, 117, 25);
+			btnCadastrar.setBounds(171, 258, 117, 25);
 			btnCadastrar.addActionListener(this);
 			add(btnCadastrar);
 					
 		}
 		else {
 			btnAlterar = new JButton("Alterar");
-			btnAlterar.setBounds(171, 238, 117, 25);
+			btnAlterar.setBounds(171, 258, 117, 25);
 			btnAlterar.addActionListener(this);
 			add(btnAlterar);
 			

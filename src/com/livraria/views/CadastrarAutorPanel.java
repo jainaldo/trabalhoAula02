@@ -1,22 +1,19 @@
 package com.livraria.views;
 
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 
 import com.livraria.controllers.AutorDAO;
 import com.livraria.models.Autor;
-import java.awt.Font;
 
 
 public class CadastrarAutorPanel extends JPanel implements ActionListener {
@@ -39,55 +36,63 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 		this.container = container;
 		this.a = a;
 		setLayout(null);
-		setBounds(100, 100, 619, 398);
+		setBounds(100, 100, 619, 399);
+		setBackground(new Color(63,73,68));
 		
 		lblNome = new JLabel("Nome:");
-		lblNome.setBounds(174, 83, 45, 15);
+		lblNome.setBounds(174, 97, 45, 15);
+		lblNome.setForeground(new Color(246,245,237));
 		add(lblNome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(222, 81, 193, 19);
+		txtNome.setBounds(222, 95, 204, 19);
+		txtNome.setBackground(new Color(246,245,237));
 		add(txtNome);
 		txtNome.setColumns(10);
 		
 		lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(188, 126, 31, 15);
+		lblCpf.setBounds(188, 140, 31, 15);
+		lblCpf.setForeground(new Color(246,245,237));
 		add(lblCpf);
 		
 		txtCpf = new JTextField();
-		txtCpf.setBounds(222, 124, 193, 19);
+		txtCpf.setBounds(222, 138, 204, 19);
+		txtCpf.setBackground(new Color(246,245,237));
 		add(txtCpf);
 		txtCpf.setColumns(10);
 		
 		lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(152, 162, 67, 15);
+		lblTelefone.setBounds(152, 176, 67, 15);
+		lblTelefone.setForeground(new Color(246,245,237));
 		add(lblTelefone);
 		
 		txtTelefone = new JTextField();
-		txtTelefone.setBounds(222, 162, 193, 19);
+		txtTelefone.setBounds(222, 176, 204, 19);
+		txtTelefone.setBackground(new Color(246,245,237));
 		add(txtTelefone);
 		txtTelefone.setColumns(10);
 				
 		btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(321, 220, 117, 25);
+		btnVoltar.setBounds(321, 234, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
 		lblTitulo = new JLabel("Cadastrar Novo Autor");
 		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
 		lblTitulo.setBounds(105, 12, 422, 44);
+		lblTitulo.setForeground(new Color(246,245,237));
 		add(lblTitulo);
 				
 		if(a == null) {
 			btnCadastrar = new JButton("Cadastrar");
-			btnCadastrar.setBounds(153, 220, 117, 25);
+			btnCadastrar.setBounds(152, 234, 117, 25);
 			btnCadastrar.addActionListener(this);
 			add(btnCadastrar);
 					
 		}
 		else {
 			btnAlterar = new JButton("Alterar");
-			btnAlterar.setBounds(153, 220, 117, 25);
+			btnAlterar.setBounds(152, 234, 117, 25);
 			btnAlterar.addActionListener(this);
 			add(btnAlterar);
 			

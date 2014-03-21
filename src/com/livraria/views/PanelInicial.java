@@ -21,6 +21,7 @@ public class PanelInicial extends JPanel implements ActionListener {
 	
 	public PanelInicial(TelaFrame container) {
 		setBackground(new Color(63,73,68));
+		setBounds(100, 100, 619, 399);
 		this.container = container;
 		setLayout(null);
 
@@ -41,13 +42,13 @@ public class PanelInicial extends JPanel implements ActionListener {
 		add(lblVerAutores);
 		
 		lblVerLivros = new JLabel("Ver Livros");
-		lblVerLivros.setForeground(Color.WHITE);
+		lblVerLivros.setForeground(new Color(246,245,237));
 		lblVerLivros.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblVerLivros.setBounds(366, 207, 72, 19);
 		add(lblVerLivros);
 		
 		lblTitulo = new JLabel("Sistema de Livraria");
-		lblTitulo.setForeground(Color.WHITE);
+		lblTitulo.setForeground(new Color(246,245,237));
 		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 40));
 		lblTitulo.setBounds(112, 38, 371, 44);
 		add(lblTitulo);

@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 
 public class TelaFrame extends JFrame  implements ActionListener {

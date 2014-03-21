@@ -35,6 +35,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		this.container =container;
 		setLayout(null);
 		setBackground(new Color(63,73,68));
+		setBounds(100, 100, 619, 399);
 		
 		livroDAO = new LivroDAO();
 		todosLivros = livroDAO.getTodosLivros();
@@ -64,8 +65,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		lblHelptext = new JLabel("*Selecione o Livro da Lista para Alterar ou Apagar!");
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblHelptext.setForeground(new Color(246,245,237));
-		lblHelptext.setBackground(Color.LIGHT_GRAY);
-		lblHelptext.setBounds(41, 272, 376, 15);
+		lblHelptext.setBounds(42, 277, 376, 15);
 		add(lblHelptext);
 		
 		lblTitulo = new JLabel("Livros Cadastrados");

@@ -21,9 +21,6 @@ public class TelaFrame extends JFrame  implements ActionListener {
 	private JMenu menuNovo;
 	private JMenuItem itemNovoLivro;
 	private JMenuItem itemNovoAutor;
-	private JMenu menuVer;
-	private JMenuItem itemVerLivros;
-	private JMenuItem itemVerAutores;
 
 	public TelaFrame() {
 		setTitle("Sistemas de Biblioteca");
@@ -43,17 +40,6 @@ public class TelaFrame extends JFrame  implements ActionListener {
 		itemNovoAutor = new JMenuItem("Autor");
 		itemNovoAutor.addActionListener(this);
 		menuNovo.add(itemNovoAutor);
-		
-		menuVer = new JMenu("Ver");
-		barraMenu.add(menuVer);
-		
-		itemVerLivros = new JMenuItem("Livros");
-		itemVerLivros.addActionListener(this);
-		menuVer.add(itemVerLivros);
-		
-		itemVerAutores = new JMenuItem("Autores");
-		itemVerAutores.addActionListener(this);
-		menuVer.add(itemVerAutores);
 		getContentPane().setLayout(null);
 		
 	}
@@ -65,12 +51,6 @@ public class TelaFrame extends JFrame  implements ActionListener {
 			validate();
 		}else if (evento.getSource() == itemNovoLivro){
 			setContentPane(new CadastrarLivroPanel(this,null));
-			validate();
-		}else if (evento.getSource() == itemVerLivros){
-			setContentPane(new VisualizarLivrosPanel(this));
-			validate();
-		}else if (evento.getSource() == itemVerAutores){
-			setContentPane(new VisualizarAutoresPanel(this));
 			validate();
 		}
 		

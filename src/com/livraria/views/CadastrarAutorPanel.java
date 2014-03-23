@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 
 import com.livraria.controllers.AutorDAO;
 import com.livraria.models.Autor;
-import javax.swing.SwingConstants;
 
 
 public class CadastrarAutorPanel extends JPanel implements ActionListener {
@@ -74,20 +73,26 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 		txtTelefone.setColumns(10);
 				
 		btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(152, 234, 117, 25);
+		btnVoltar.setBounds(321, 234, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
+		
+		lblTitulo = new JLabel("Cadastrar Novo Autor");
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTitulo.setBounds(105, 12, 422, 44);
+		lblTitulo.setForeground(new Color(246,245,237));
+		add(lblTitulo);
 				
 		if(a == null) {
 			btnCadastrar = new JButton("Cadastrar");
-			btnCadastrar.setBounds(334, 234, 117, 25);
+			btnCadastrar.setBounds(152, 234, 117, 25);
 			btnCadastrar.addActionListener(this);
 			add(btnCadastrar);
 					
 		}
 		else {
 			btnAlterar = new JButton("Alterar");
-			btnAlterar.setBounds(334, 234, 117, 25);
+			btnAlterar.setBounds(152, 234, 117, 25);
 			btnAlterar.addActionListener(this);
 			add(btnAlterar);
 			
@@ -97,7 +102,7 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 		}
 		
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == btnCadastrar ){

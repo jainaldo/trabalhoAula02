@@ -25,7 +25,6 @@ import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.SwingConstants;
 
 
 public class VisualizarAutoresPanel extends JPanel implements ActionListener {
@@ -60,17 +59,17 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		add(listaAutores);
 		
 		btnAlterarAutor = new JButton("Alterar");
-		btnAlterarAutor.setBounds(349, 311, 117, 25);
+		btnAlterarAutor.setBounds(253, 311, 117, 25);
 		btnAlterarAutor.addActionListener(this);
 		add(btnAlterarAutor);
 		
-//		btnApagarAutor = new JButton("Apagar");
-//		btnApagarAutor.setBounds(417, 311, 108, 25);
-//		btnApagarAutor.addActionListener(this);
-//		add(btnApagarAutor);
+		btnApagarAutor = new JButton("Apagar");
+		btnApagarAutor.setBounds(417, 311, 108, 25);
+		btnApagarAutor.addActionListener(this);
+		add(btnApagarAutor);
 		
 		btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(161, 311, 117, 25);
+		btnVoltar.setBounds(89, 311, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
@@ -79,13 +78,12 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		lblHelptext.setForeground(new Color(246,245,237));
 		lblHelptext.setBounds(47, 273, 376, 15);
 		add(lblHelptext);
-//		
-//		lblTitulo = new JLabel("Autores Cadastrados");
-//		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-//		lblTitulo.setForeground(new Color(246,245,237));
-//		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
-//		lblTitulo.setBounds(12, 24, 595, 44);
-//		add(lblTitulo);
+		
+		lblTitulo = new JLabel("Autores Cadastrados");
+		lblTitulo.setForeground(new Color(246,245,237));
+		lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+		lblTitulo.setBounds(116, 24, 394, 44);
+		add(lblTitulo);
 		
 	}
 
@@ -100,14 +98,6 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		}else if (evento.getSource() == btnAlterarAutor){
 			Autor a = todosAutores.get(listaAutores.getSelectedIndex());
 			CadastrarAutorPanel panelAutor = new CadastrarAutorPanel(container,a);
-			
-			JLabel lblTitulo = new JLabel("Alterar Autor");
-			lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-			lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
-			lblTitulo.setBounds(12, 12, 595, 44);
-			lblTitulo.setForeground(new Color(246,245,237));
-			
-			panelAutor.add(lblTitulo);
 			setVisible(false);
 			container.setContentPane(panelAutor);
 			container.validate();	

@@ -13,12 +13,11 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Livro;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
 
 public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	private JList listaLivros;
@@ -78,6 +77,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
+		JLabel titulo;
 		if (evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
 			container.setContentPane(panelinicial);
@@ -85,6 +85,13 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		}else if (evento.getSource() == btnAlterarLivro){
 			Livro l = todosLivros.get(listaLivros.getSelectedIndex());
 			CadastrarLivroPanel panelLivro = new CadastrarLivroPanel(container,l);
+			
+			titulo = new JLabel("Alterar Livro");
+			titulo.setHorizontalAlignment(SwingConstants.CENTER);
+			titulo.setForeground(new Color(246,245,237));
+			titulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+			titulo.setBounds(12, 12, 595, 44);
+			panelLivro.add(titulo);
 			container.setContentPane(panelLivro);
 			container.validate();
 		}else if(evento.getSource() == btnExcluirLivro){

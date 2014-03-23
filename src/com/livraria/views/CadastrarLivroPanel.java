@@ -18,6 +18,7 @@ import com.livraria.controllers.AutorDAO;
 import com.livraria.controllers.LivroDAO;
 import com.livraria.models.Autor;
 import com.livraria.models.Livro;
+import javax.swing.SwingConstants;
 
 public class CadastrarLivroPanel extends JPanel implements ActionListener {
 
@@ -98,12 +99,6 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		btnVoltar.setBounds(329, 258, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
-		
-		lblTituloPanel = new JLabel("Cadastrar Novo Livro");
-		lblTituloPanel.setForeground(new Color(246,245,237));
-		lblTituloPanel.setFont(new Font("Ubuntu", Font.BOLD, 38));
-		lblTituloPanel.setBounds(119, 12, 397, 44);
-		add(lblTituloPanel);
 		
 		if(l == null) {
 			btnCadastrar = new JButton("Cadastrar");

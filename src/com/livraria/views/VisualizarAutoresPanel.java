@@ -2,29 +2,23 @@ package com.livraria.views;
 
 
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 
 import com.livraria.controllers.AutorDAO;
 import com.livraria.models.Autor;
-
-import javax.swing.JList;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.SystemColor;
-import javax.swing.UIManager;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.TitledBorder;
 
 
 public class VisualizarAutoresPanel extends JPanel implements ActionListener {
@@ -90,6 +84,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
+		JLabel titulo;
 		if (evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
 			container.setContentPane(panelinicial);
@@ -97,6 +92,14 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		}else if (evento.getSource() == btnAlterarAutor){
 			Autor a = todosAutores.get(listaAutores.getSelectedIndex());
 			CadastrarAutorPanel panelAutor = new CadastrarAutorPanel(container,a);
+			
+			titulo = new JLabel("Alterar Autor");
+			titulo.setHorizontalAlignment(SwingConstants.CENTER);
+			titulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
+			titulo.setBounds(12, 12, 595, 44);
+			titulo.setForeground(new Color(246,245,237));
+			panelAutor.add(titulo);
+			
 			container.setContentPane(panelAutor);
 			container.validate();	
 		}else if(evento.getSource() == btnExcluirAutor){

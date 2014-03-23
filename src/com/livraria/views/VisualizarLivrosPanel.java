@@ -101,7 +101,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
             if (opcao == JOptionPane.YES_OPTION) {
             	Livro l = todosLivros.get( listaLivros.getSelectedIndex() );
             	if( livroDAO.apagarLivro(l.getId() ) ) {
-            		JOptionPane.showMessageDialog(null, "Livro Apagado com Sucesso!");            		
+            		JOptionPane.showMessageDialog(null, "Livro Excluido com Sucesso!");            		
             		todosLivros = livroDAO.getTodosLivros();
         			listaLivros.setListData(todosLivros);
             	}

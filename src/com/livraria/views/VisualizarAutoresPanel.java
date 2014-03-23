@@ -110,7 +110,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
             if (opcao == JOptionPane.YES_OPTION) {
             	Autor a = todosAutores.get( listaAutores.getSelectedIndex() );
             	if( autorDAO.apagarAutor(a.getId() ) ) {
-            		JOptionPane.showMessageDialog(null, "Autor Apagado com Sucesso!");            		
+            		JOptionPane.showMessageDialog(null, "Autor Excluido com Sucesso!");            		
             		todosAutores = autorDAO.getTodosAutores();
         			listaAutores.setListData(todosAutores);
             	}

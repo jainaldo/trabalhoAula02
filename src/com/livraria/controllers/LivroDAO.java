@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import com.livraria.models.Autor;
 import com.livraria.models.Livro;
 
 
@@ -16,7 +17,6 @@ public class LivroDAO {
 	private String url = "jdbc:mysql://localhost/livraria";
 	private Connection conexao;
 	private PreparedStatement pstm;
-	private AutorDAO autorDAO= new AutorDAO();
 	
 	public boolean cadastrarLivro(Livro l) {
 		
@@ -43,18 +43,21 @@ public class LivroDAO {
 	public Vector<Livro> getTodosLivros() {
 		try {
 			Vector<Livro> Livros = new Vector<Livro>();
+			Vector<Autor> todosAutores ;
 			conexao = DriverManager.getConnection(url, login, senha);
 			String sql = "select * from livros order by id";
 			pstm = conexao.prepareStatement(sql);
 			ResultSet todosLivros = pstm.executeQuery();
+			AutorDAO autorDAO = new AutorDAO();
+			todosAutores = autorDAO.getTodosAutores();
 			while( todosLivros.next() ) {
 				Livro l = new Livro();
 				l.setId( todosLivros.getInt("id") );
 				l.setTitulo( todosLivros.getString("titulo") );
 				l.setEditora( todosLivros.getString("editora") );
-				for (int i = 0; i < autorDAO.getTodosAutores().size(); i++) {
-					if (autorDAO.getTodosAutores().get(i).getId() == todosLivros.getInt("autor_id")){
-						l.setAutor(autorDAO.getTodosAutores().get(i));
+				for (int i = 0; i < todosAutores.size(); i++) {
+					if (todosAutores.get(i).getId() == todosLivros.getInt("autor_id")){
+						l.setAutor(todosAutores.get(i));
 						break;
 					}
 				}

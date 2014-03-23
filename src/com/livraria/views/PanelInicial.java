@@ -59,12 +59,10 @@ public class PanelInicial extends JPanel implements ActionListener {
 	
 		if (evento.getSource() == btnVerAutores){
 			VisualizarAutoresPanel panelVerAutores = new VisualizarAutoresPanel(container);
-			setVisible(false);
 			container.setContentPane(panelVerAutores);
 			container.validate();
 		}else if(evento.getSource() == btnVerLivros){
 			VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
-			setVisible(false);
 			container.setContentPane(panelVerLivros);
 			container.validate();
 		}

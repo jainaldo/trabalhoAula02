@@ -113,7 +113,6 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 			if( autorDAO.cadastrarAutor(a) ){
 				JOptionPane.showMessageDialog(null, "Autor cadastrado com sucesso");
 				VisualizarAutoresPanel panelVerAutores = new VisualizarAutoresPanel(container);
-				setVisible(false);
 				container.setContentPane(panelVerAutores);
 				container.validate();
 			}else
@@ -126,7 +125,6 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 			if( autorDAO.atualizarAutor(a) ){
 				JOptionPane.showMessageDialog(null, "Autor atualizado com sucesso!");
 				VisualizarAutoresPanel panelVerAutores = new VisualizarAutoresPanel(container);
-				setVisible(false);
 				container.setContentPane(panelVerAutores);
 				container.validate();
 			}else
@@ -134,7 +132,6 @@ public class CadastrarAutorPanel extends JPanel implements ActionListener {
 			
 		}else if(evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
-			setVisible(false);
 			container.setContentPane(panelinicial);
 			container.validate();	
 		}

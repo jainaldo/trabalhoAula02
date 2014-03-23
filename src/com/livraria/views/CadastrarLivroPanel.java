@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import javax.swing.JTextField;
 
 import com.livraria.controllers.AutorDAO;
 import com.livraria.controllers.LivroDAO;
+import com.livraria.models.Autor;
 import com.livraria.models.Livro;
 
 public class CadastrarLivroPanel extends JPanel implements ActionListener {
@@ -35,6 +37,7 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 	private Livro l;
 	private TelaFrame container;
 	private JLabel lblTituloPanel;
+	private Vector<Autor> todosAutores;
 
 	public CadastrarLivroPanel(TelaFrame container,Livro l) {
 		this.l =l;
@@ -71,10 +74,13 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		lblAutor.setBounds(160, 172, 46, 15);
 		add(lblAutor);
 		
+		AutorDAO autorDAO = new AutorDAO();
+		todosAutores = autorDAO.getTodosAutores();
+		
 		cbnAutor = new JComboBox();
 		cbnAutor.setBackground(new Color(246,245,237));
 		cbnAutor.setBounds(206, 167, 261, 24);
-		cbnAutor.setModel(new DefaultComboBoxModel(autorDAO.getTodosAutores()));
+		cbnAutor.setModel(new DefaultComboBoxModel(todosAutores));
 		add(cbnAutor);
 		
 		lblPreco = new JLabel("Preço:");
@@ -114,7 +120,14 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 			
 			txtTitulo.setText(l.getTitulo() );
 			txtEditora.setText(l.getEditora() );
-			cbnAutor.setSelectedItem(l.getAutor());
+			for (int i = 0; i < todosAutores.size(); i++) {
+				if(todosAutores.get(i).getId() == l.getAutor().getId()){
+					cbnAutor.setSelectedIndex(i);
+					break;
+				}
+				
+			}
+			cbnAutor.setSelectedItem(l.getAutor().getId());
 			txtPreco.setText(String.valueOf(l.getPreco()));
 		}
 	}
@@ -130,7 +143,6 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 			if( livroDAO.cadastrarLivro(l) ){
 				JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso");
 				VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
-				setVisible(false);
 				container.setContentPane(panelVerLivros);
 				container.validate();
 			}else
@@ -144,7 +156,6 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 			if( livroDAO.atualizarLivro(l) ){
 				JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso!");
 				VisualizarLivrosPanel panelVerLivros = new VisualizarLivrosPanel(container);
-				setVisible(false);
 				container.setContentPane(panelVerLivros);
 				container.validate();
 			}else
@@ -152,7 +163,6 @@ public class CadastrarLivroPanel extends JPanel implements ActionListener {
 		}
 		else if(evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
-			setVisible(false);
 			container.setContentPane(panelinicial);
 			container.validate();
 		}

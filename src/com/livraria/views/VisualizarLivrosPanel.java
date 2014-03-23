@@ -80,13 +80,11 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == btnVoltar){
 			PanelInicial panelinicial = new PanelInicial(container);
-			setVisible(false);
 			container.setContentPane(panelinicial);
 			container.validate();
 		}else if (evento.getSource() == btnAlterarLivro){
 			Livro l = todosLivros.get(listaLivros.getSelectedIndex());
 			CadastrarLivroPanel panelLivro = new CadastrarLivroPanel(container,l);
-			setVisible(false);
 			container.setContentPane(panelLivro);
 			container.validate();
 		}else if(evento.getSource() == btnApagarLivro){

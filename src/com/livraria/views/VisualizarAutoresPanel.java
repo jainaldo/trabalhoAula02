@@ -33,7 +33,7 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 	private AutorDAO autorDAO;
 	private Vector<Autor> todosAutores;
 	private JButton btnVoltar;
-	private JButton btnApagarAutor;
+	private JButton btnExcluirAutor;
 	private JButton btnAlterarAutor;
 	private TelaFrame container;
 	private JLabel lblHelptext;
@@ -63,17 +63,17 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 		btnAlterarAutor.addActionListener(this);
 		add(btnAlterarAutor);
 		
-		btnApagarAutor = new JButton("Apagar");
-		btnApagarAutor.setBounds(417, 311, 108, 25);
-		btnApagarAutor.addActionListener(this);
-		add(btnApagarAutor);
+		btnExcluirAutor = new JButton("Excluir");
+		btnExcluirAutor.setBounds(417, 311, 108, 25);
+		btnExcluirAutor.addActionListener(this);
+		add(btnExcluirAutor);
 		
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(89, 311, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
-		lblHelptext = new JLabel("*Selecione um Autor da Lista para Alterar ou Apagar!");
+		lblHelptext = new JLabel("*Selecione um Autor da Lista para Alterar ou Excluir!");
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 13));
 		lblHelptext.setForeground(new Color(246,245,237));
 		lblHelptext.setBounds(47, 273, 376, 15);
@@ -99,9 +99,10 @@ public class VisualizarAutoresPanel extends JPanel implements ActionListener {
 			CadastrarAutorPanel panelAutor = new CadastrarAutorPanel(container,a);
 			container.setContentPane(panelAutor);
 			container.validate();	
-		}else if(evento.getSource() == btnApagarAutor){
+		}else if(evento.getSource() == btnExcluirAutor){
 			int opcao = JOptionPane.showConfirmDialog(null, 
-					"Tem certeza que deseja apagar o Autor selecionado?", "Exclusão de Autor",
+					"Tem certeza que deseja excluir o Autor selecionado?\n" +
+					"<html><font color=red face=arial><b>Obs:Também todos os Livros deste Autor serão excluidos!", "Exclusão de Autor",
 					JOptionPane.YES_NO_OPTION);
             if (opcao == JOptionPane.YES_OPTION) {
             	Autor a = todosAutores.get( listaAutores.getSelectedIndex() );

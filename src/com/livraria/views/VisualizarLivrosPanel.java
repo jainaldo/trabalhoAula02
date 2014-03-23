@@ -25,7 +25,7 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 	private LivroDAO livroDAO;
 	private Vector<Livro> todosLivros;
 	private JButton btnVoltar;
-	private JButton btnApagarLivro;
+	private JButton btnExcluirLivro;
 	private JButton btnAlterarLivro;
 	private TelaFrame container;
 	private JLabel lblHelptext;
@@ -52,17 +52,17 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 		btnAlterarLivro.addActionListener(this);
 		add(btnAlterarLivro);
 		
-		btnApagarLivro = new JButton("Apagar");
-		btnApagarLivro.setBounds(417, 311, 108, 25);
-		btnApagarLivro.addActionListener(this);
-		add(btnApagarLivro);
+		btnExcluirLivro = new JButton("Excluir");
+		btnExcluirLivro.setBounds(417, 311, 108, 25);
+		btnExcluirLivro.addActionListener(this);
+		add(btnExcluirLivro);
 		
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(89, 311, 117, 25);
 		btnVoltar.addActionListener(this);
 		add(btnVoltar);
 		
-		lblHelptext = new JLabel("*Selecione o Livro da Lista para Alterar ou Apagar!");
+		lblHelptext = new JLabel("*Selecione o Livro da Lista para Alterar ou Excluir!");
 		lblHelptext.setFont(new Font("Ubuntu", Font.BOLD, 14));
 		lblHelptext.setForeground(new Color(246,245,237));
 		lblHelptext.setBounds(42, 277, 376, 15);
@@ -87,9 +87,9 @@ public class VisualizarLivrosPanel extends JPanel implements ActionListener {
 			CadastrarLivroPanel panelLivro = new CadastrarLivroPanel(container,l);
 			container.setContentPane(panelLivro);
 			container.validate();
-		}else if(evento.getSource() == btnApagarLivro){
+		}else if(evento.getSource() == btnExcluirLivro){
 			int opcao = JOptionPane.showConfirmDialog(null, 
-					"Tem certeza que deseja apagar o Livro selecionado?", "Exclusão de Livro",
+					"Tem certeza que deseja excluir o Livro selecionado?", "Exclusão de Livro",
 					JOptionPane.YES_NO_OPTION);
             if (opcao == JOptionPane.YES_OPTION) {
             	Livro l = todosLivros.get( listaLivros.getSelectedIndex() );

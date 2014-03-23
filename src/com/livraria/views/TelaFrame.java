@@ -102,7 +102,7 @@ public class TelaFrame extends JFrame  implements ActionListener {
 			btnAlterarAutor.addActionListener(this);
 			panelalterarAutor.add(btnAlterarAutor);
 			
-			lblTitulo = new JLabel("Selecione um Autor para Alterar");
+			lblTitulo = new JLabel("Selecione Autor para Alterar");
 			lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTitulo.setForeground(new Color(246,245,237));
 			lblTitulo.setFont(new Font("Ubuntu", Font.BOLD, 38));
